@@ -6,18 +6,22 @@ const person = {
   }
 };
 
-function Button ({text = 'Click Me!', color = 'blue', fontSize = '12'}) {
+function Button ({text = 'Click Me!', color = 'blue', fontSize = '12', handleClick}) {
     const buttonStyle = {
         color: color,
         fontSize: fontSize + 'px'
     };
 
     return (
-        <button style={buttonStyle}>{text}</button>
+        <button onClick={handleClick} style={buttonStyle}>{text}</button>
     );
 }
 
 export default function TodoList() {
+    const handleButtonClick = (url) => {
+        window.location.href = url;
+    }
+
   return (
     <div style={person.theme}>
       <h1>{person.name}'s Todos</h1>
@@ -32,7 +36,7 @@ export default function TodoList() {
         <li>Work on the alcohol-fuelled engine</li>
       </ul>
       <Button  />
-      <Button text='Don&apos;t click me!' color='red' />
+      <Button handleClick={() => handleButtonClick('https://www.theodinproject.com')} text='Don&apos;t click me!' color='red' />
       <Button color='Yellow' />
     </div>
   );
