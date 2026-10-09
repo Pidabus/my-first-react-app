@@ -6,6 +6,17 @@ const person = {
   }
 };
 
+function Button ({text = 'Click Me!', color = 'blue', fontSize = '12'}) {
+    const buttonStyle = {
+        color: color,
+        fontSize: fontSize + 'px'
+    };
+
+    return (
+        <button style={buttonStyle}>{text}</button>
+    );
+}
+
 export default function TodoList() {
   return (
     <div style={person.theme}>
@@ -20,6 +31,9 @@ export default function TodoList() {
         <li>Prepare aeronautics lectures</li>
         <li>Work on the alcohol-fuelled engine</li>
       </ul>
+      <Button  />
+      <Button text='Don&apos;t click me!' color='red' />
+      <Button color='Yellow' />
     </div>
   );
 }
